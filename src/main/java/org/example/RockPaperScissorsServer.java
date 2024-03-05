@@ -1,16 +1,10 @@
 package org.example;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.javatuples.Pair;
 
 import java.net.*;
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class RockPaperScissorsServer implements Runnable {
     private Socket clientSocket;
@@ -18,7 +12,10 @@ public class RockPaperScissorsServer implements Runnable {
     private ServerSocket serverSocket;
     private InputStream is;
     private OutputStream os;
-    private Gamestate gamestate = null;
+
+    private final ObjectMapper objectmapper = new ObjectMapper();
+
+    private Gamestate gamestate = new Gamestate();
 
     public void StartServer() throws IOException {
         serverSocket = new ServerSocket(port);
@@ -35,48 +32,46 @@ public class RockPaperScissorsServer implements Runnable {
         return moves[r.nextInt(5)];
     }
 
-    private Gamestate onCall(Gamestate gamestate) {
-        Pair<Integer, String> move = new Pair<>(1, makeMove());
-        gamestate = gamestate.updateGamestate(move);
-        gamestate = gamestate.updateGamestate(gamestate.getTurnNo() + 1);
-        return gamestate;
+
+    private String readInputStream() throws IOException, InterruptedException {
+        byte[] response = is.readNBytes(is.available());
+        while(response.length == 0){
+            response = is.readNBytes(is.available());
+            Thread.sleep(100);
+        }
+        return new String(response);
     }
 
-    private void handleCallback(ObjectMapper objectMapper, String data) throws IOException {
-        this.gamestate = objectMapper.readValue(data, Gamestate.class);
-        gamestate = onCall(gamestate);
-        os.write(gamestate.gamestateToBytes(gamestate));
-        os.flush();
+    private String sendGamestate(Gamestate gamestate) throws IOException, InterruptedException {
+        byte[] responseBuffer = this.gamestate.asString().getBytes();
+        os.write(responseBuffer);
+        byte[] response = is.readNBytes(is.available());
+        while(response.length == 0){
+            response = is.readNBytes(is.available());
+            Thread.sleep(10);
+        }
+        return new String(response);
     }
 
     @Override
     public void run() {
         try {
             StartServer();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-            while (true) {
-                int availableBytes = is.available();
-
-                if (availableBytes > 0) {
-                    byte[] buffer = new byte[availableBytes];
-                    int bytesRead = is.read(buffer);
-                    if (bytesRead > 0) {
-                        String data = new String(buffer, 0, bytesRead);
-                        ObjectMapper objectMapper = new ObjectMapper();
-
-                        handleCallback(objectMapper, data);
-
-                        byte[] responseBuffer = new byte[1024];
-                        int responseBytesRead = is.read(responseBuffer);
-                        if (responseBytesRead > 0) {
-                            String response = new String(responseBuffer, 0, responseBytesRead);
-                            handleCallback(objectMapper, new String(responseBuffer, 0, responseBytesRead));
-                        }
-                    }
+            String response = readInputStream();
+            System.out.println(response);
+            while(!this.gamestate.getGameOver()) {
+                if(response != null){
+                    this.gamestate = this.objectmapper.readValue(response, Gamestate.class);
+                    Pair<Integer, String> move = new Pair<>(1, makeMove());
+                    this.gamestate = this.gamestate.updateGamestate(move);
+                    response = sendGamestate(this.gamestate);
                 }
-
-                Thread.sleep(10);
+                System.out.println(clientSocket.isConnected());
             }
+            System.out.println("Gameover");
+            is.close();
+            os.close();
+            serverSocket.close();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }

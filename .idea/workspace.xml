@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f62dbea-68cd-4786-adf6-cd4ab16456c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Gamestate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Referee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" afterDir="false" />
+    <list default="true" id="0f62dbea-68cd-4786-adf6-cd4ab16456c0" name="Changes" comment="Initial Commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Gamestate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Referee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Referee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +31,12 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2d5kbKKgcpxHu7hqCdQDgwdR3LY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -66,6 +64,23 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\cjones\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="3290ed37-157e-46a2-9d9b-781c637cea66" />
+        <option name="reportName" value="Rock-Paper-Scissors/qodana/2024-03-05" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\cjones\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="3290ed37-157e-46a2-9d9b-781c637cea66" reportId="Rock-Paper-Scissors/qodana/2024-03-05" />
+    </option>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -81,12 +96,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709305399302</updated>
-      <workItem from="1709562022339" duration="9136000" />
+      <workItem from="1709562022339" duration="9438000" />
+      <workItem from="1709631467913" duration="16195000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit">
+      <option name="closed" value="true" />
+      <created>1709571260034</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709571260035</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -95,11 +135,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="4" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/RockPaperScissorsClient.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -12,5 +12,6 @@ public class App {
       RockPaperScissorsClient client = new RockPaperScissorsClient();
       Thread clientThread = new Thread(client, "RPS_CLIENT_THREAD");
       clientThread.start();
+
   }
 }

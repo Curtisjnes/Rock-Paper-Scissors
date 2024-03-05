@@ -81,8 +81,8 @@ public class Gamestate {
     public Gamestate updateGamestate(Object newVal){
         if (newVal instanceof Integer && newVal != this.turnNo) {
             setTurnNo((Integer) newVal);
-        } else if (newVal instanceof String && !this.winner.contains(newVal)) {
-            this.winner.add(newVal.toString());
+        } else if (newVal instanceof String) {
+            winner.add(newVal.toString());
         } else if (newVal instanceof Boolean && newVal != this.gameOver) {
             setGameOver((Boolean) newVal);
         } else if (newVal instanceof Pair && !Objects.equals(((Pair<Integer, String>) newVal).getValue1(), this.moves[((Pair<Integer, String>) newVal).getValue0()])) {
